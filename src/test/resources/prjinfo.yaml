@@ -3,23 +3,6 @@ company: inno
 title: 测试项目
 output: ../output
 
-dburl: jdbc:mysql://localhost/information_schema?user=devtest&password=123456&useUnicode=true&characterEncoding=utf8
+dburl: jdbc:mysql://120.24.253.200:33060/information_schema?user=dev01&password=dev01@2015!&useUnicode=true&characterEncoding=utf8
 dbs:
-  - catalog
-
-
-apps:
-  - mobile
-  - home
-  - wx
-  - admin
-
-
-modules:
-  - ns: catalog
-    db: catalog
-    tables:
-      - table1
-      - table2
-    ref:
-      - a1
+  - sx_core

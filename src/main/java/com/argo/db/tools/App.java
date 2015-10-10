@@ -20,7 +20,7 @@ public class App {
 
         Option confFile = Option.builder("c")
                 .hasArg()
-                .required(true)
+                .required(false)
                 .desc("conf yaml file name")
                 .build();
 
@@ -81,18 +81,13 @@ public class App {
         TableSchemaService tableSchemaService = new MySqlTableServiceImpl();
         tableSchemaService.openConnection(projectInfo.getDburl());
 
-        if ("xls".equalsIgnoreCase(action)) {
-            List<String> dbname = projectInfo.getDbs();
-            for (String name : dbname) {
-                tableSchemaService.exportXls(name, "simple");
-                tableSchemaService.exportXls(name, "full");
-            }
-        }else{
-
-            ExportParams params = new ExportParams(line);
-            tableSchemaService.exportEntity(params);
-
+        List<String> dbname = projectInfo.getDbs();
+        for (String name : dbname) {
+            System.out.print("table: " + name);
+            tableSchemaService.exportXls(name, "simple");
+            tableSchemaService.exportXls(name, "full");
         }
+
     }
 
 }

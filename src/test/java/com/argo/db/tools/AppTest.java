@@ -15,6 +15,7 @@ public class AppTest {
 
     @Test
     public void testMain() throws Exception {
-
+        String[] args = new String[]{"a", "xls"};
+        App.main(args);
     }
 }
