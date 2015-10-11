@@ -30,6 +30,9 @@ public class TableColumn {
         this.nullable = "YES".equalsIgnoreCase(resultSet.getString(7));
         this.column_default = resultSet.getString(8);
         this.maxLength = resultSet.getInt(9);
+        if (this.column_default == null){
+            this.column_default = "";
+        }
     }
 
     public String getTable_name() {
