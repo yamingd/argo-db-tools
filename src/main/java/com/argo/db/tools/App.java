@@ -40,7 +40,7 @@ public class App {
                 .build();
 
         Options options = new Options();
-
+        options.addOption(mode);
         options.addOption(confFile);
         options.addOption(db);
         options.addOption(table);
@@ -80,14 +80,16 @@ public class App {
 
         TableSchemaService tableSchemaService = new MySqlTableServiceImpl();
         tableSchemaService.openConnection(projectInfo.getDburl());
+        if ("xls".equalsIgnoreCase(action)) {
+            List<String> dbname = projectInfo.getDbs();
+            for (String name : dbname) {
+                System.out.print("table: " + name);
+                tableSchemaService.exportXls(name, "simple");
+                tableSchemaService.exportXls(name, "full");
+            }
+        }else if ("html".equalsIgnoreCase(action)) {
 
-        List<String> dbname = projectInfo.getDbs();
-        for (String name : dbname) {
-            System.out.print("table: " + name);
-            tableSchemaService.exportXls(name, "simple");
-            tableSchemaService.exportXls(name, "full");
         }
-
     }
 
 }
