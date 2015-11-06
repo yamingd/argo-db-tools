@@ -7,14 +7,14 @@ apply plugin: 'signing'
 apply plugin: 'application'
 
 compileJava {
-    sourceCompatibility=1.7
-    targetCompatibility=1.7
+    sourceCompatibility=1.8
+    targetCompatibility=1.8
     options.encoding='UTF-8'
 }
 
 compileTestJava {
-    sourceCompatibility=1.7
-    targetCompatibility=1.7
+    sourceCompatibility=1.8
+    targetCompatibility=1.8
     options.encoding='UTF-8'
 }
 
@@ -31,8 +31,8 @@ mainClassName = 'com.argo.db.tools.App'
 description = 'db tools'
 
 dependencies {
-    compile 'com.github.yamingd.argo:argo-yaml:1.0'
-    compile 'com.github.yamingd.argo:annotations:2.0'
+    compile 'com.github.yamingd.argo:argo-yaml:1.2'
+    compile 'com.github.yamingd.argo:annotations:2.1'
     compile 'commons-cli:commons-cli:1.3.1'
     compile 'org.apache.commons:commons-lang3:3.1'
     compile 'com.squareup:javapoet:1.2.0'
